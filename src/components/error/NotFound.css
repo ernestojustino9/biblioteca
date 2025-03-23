@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', sans-serif;
+}
+:root {
+  --color-text: #1f8fc3;
+  --color-bg-dark: #11101d;
+  --color-dark: #1d2231;
+  --color-blue: #0d6efd;
+  --color-orange: #fd7e14;
+  --color-yellow: #ffc107;
+  --color-green: #198754;
+  --color-white: #fff;
+  --color-gray: #8390a2;
+  --color-gray-dark: #343a40;
+  --btn-primary: #0d6efd;
+  --btn-info: #0dcaf0;
+  --btn-danger: #dc3545;
+  --btn-light: #f8f9fa;
+}
+.notFoundDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+#notFoundH1 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+#notFoundP {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--btn-danger);
+}

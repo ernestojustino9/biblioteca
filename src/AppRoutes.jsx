@@ -10,6 +10,7 @@ import { AuthProvider, AuthContext } from "./contexts/Auth";
 import Home from "./pages/Home";
 import Login from "./pages/admin/Login";
 import NotFound from "./components/error/NotFound";
+import Lirvos from "./pages/livros/Lirvos";
 
 const AppRoutes = () => {
   // Pagina Privada
@@ -47,6 +48,15 @@ const AppRoutes = () => {
             element={
               <Private>
                 <Home />
+              </Private>
+            }
+          />
+          <Route
+            exact
+            path="/livros"
+            element={
+              <Private>
+                <Lirvos />
               </Private>
             }
           />

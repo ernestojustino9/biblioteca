@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -33,17 +34,32 @@ export const AuthProvider = ({ children }) => {
     if (senha === "123456") {
       setUser(loggedUser);
       navigate("/");
+    } else {
+      toast.error("Email e a senha incoreto");
     }
   };
 
-  const logout = () => {
-    console.log("logout");
-    // Remover o usuario logado
-    localStorage.removeItem("user");
-    //
-    setUser(null);
-    navigate("/login");
+  // const logout = () => {
+  //   console.log("logout");
+  //   // Remover o usuario logado
+  //   localStorage.removeItem("user");
+  //   //
+  //   setUser(null);
+  //   navigate("/login");
+  // };
+  const logout = async () => {
+    try {
+      console.log("logout");
+      localStorage.removeItem("user");
+      setUser(null);
+      navigate("/login");
+    } catch (error) {
+      toast(error.message, {
+        type: "error",
+      });
+    }
   };
+
 
   //
   return (

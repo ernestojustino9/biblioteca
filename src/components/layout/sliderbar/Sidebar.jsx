@@ -10,9 +10,9 @@ const Sidebar = () => {
         id="accordionSidebar"
       >
         {/* <!-- Sidebar - Brand --> */}
-        <a
+        <Link
           className="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          to="/"
         >
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-laugh-wink"></i>
@@ -21,7 +21,7 @@ const Sidebar = () => {
             Biblioteca
             {/* <sup>2</sup> */}
           </div>
-        </a>
+        </Link>
 
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider my-0" />
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <li className="nav-item active">
           <a
             className="nav-link"
-            // href="index.html"
+          // href="index.html"
           >
             <i className="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
@@ -42,65 +42,65 @@ const Sidebar = () => {
 
         {/* <!-- Heading --> */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapseTwo"
-            aria-expanded="true"
-            aria-controls="collapseTwo"
+            to="/livros"
+          // data-toggle="collapse"
+          // data-target="#collapseTwo"
+          // aria-expanded="true"
+          // aria-controls="collapseTwo"
           >
             {/* <i className="fas fa-fw fa-cog"></i> */}
             <span>Livros</span>
-          </a>
+          </Link>
         </li>
 
         {/* <!-- Nav Item - Utilities Collapse Menu --> */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
+            to="/reserva"
+          // data-toggle="collapse"
+          // data-target="#collapseUtilities"
+          // aria-expanded="true"
+          // aria-controls="collapseUtilities"
           >
             {/* <i className="fas fa-fw fa-wrench"></i> */}
             <span>Reserva</span>
-          </a>
+          </Link>
         </li>
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider" />
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapsePages"
-            aria-expanded="true"
-            aria-controls="collapsePages"
+            href="emprestimo"
+          // data-toggle="collapse"
+          // data-target="#collapsePages"
+          // aria-expanded="true"
+          // aria-controls="collapsePages"
           >
             {/* <i className="fas fa-fw fa-folder"></i> */}
             <span>Emprestimo</span>
-          </a>
+          </Link>
         </li>
 
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider" />
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapsePages"
-            aria-expanded="true"
-            aria-controls="collapsePages"
+            to="/multa"
+            // data-toggle="collapse"
+            // data-target="#collapsePages"
+            // aria-expanded="true"
+            // aria-controls="collapsePages"
           >
             {/* <i className="fas fa-fw fa-folder"></i> */}
             <span>Multa</span>
-          </a>
+          </Link>
         </li>
 
         {/* <!-- Nav Item - Charts --> */}

@@ -57,18 +57,12 @@ const Login = () => {
                             onChange={(e) => setSenha(e.target.value)}
                           />
                         </div>
-
-                        {/* <Link
-                          to={"/"}
-                          className="btn btn-primary btn-user btn-block"
-                        /> */}
                         <button
                           type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
                           Entrar
                         </button>
-                        <hr />
                       </form>
                       <hr />
                     </div>

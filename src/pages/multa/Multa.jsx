@@ -22,7 +22,7 @@ const Multa = () => {
                         {/* <div className="row"> */}
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Livros</h6>
+                                <h6 className="m-0 font-weight-bold text-primary">Multa</h6>
                                 <div class="search-container">
                                     <TextField
                                         // id="standard-basic"
@@ -43,26 +43,22 @@ const Multa = () => {
                                     <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Titulo</th>
-                                                <th>Autor</th>
-                                                <th>Ano</th>
-                                                <th>Qtd</th>
-                                                <th>Estado</th>
-                                                {/* <th>Salary</th> */}
+                                                <th>Cliente</th>
+                                                <th>Emprestimo</th>
+                                                <th>Valor</th>
+                                                {/* <th>Estado</th> */}
                                                 <th>Acao</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
+                                                <td>EJ-Developer</td>
+                                                <td>Vagne Zau Lelo</td>
+                                                <td>100kz</td>
                                                 {/* <td> <Button onClick={() => handleArmazemEdit(row)}><Edit /></Button>
                                                     <Button onClick={() => handleArmazemDelete(row)}><DeleteIcon /></Button></td> */}
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
+                                                <td> <Button>Editar</Button>
+                                                    <Button >Eliminar</Button></td>
                                             </tr>
                                             <tr>
                                                 <td>Garrett Winters</td>

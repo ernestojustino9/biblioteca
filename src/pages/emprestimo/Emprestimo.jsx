@@ -22,7 +22,7 @@ const Emprestimo = () => {
                         {/* <div className="row"> */}
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Livros</h6>
+                                <h6 className="m-0 font-weight-bold text-primary">Emprestimo</h6>
                                 <div class="search-container">
                                     <TextField
                                         // id="standard-basic"
@@ -43,44 +43,24 @@ const Emprestimo = () => {
                                     <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Titulo</th>
-                                                <th>Autor</th>
-                                                <th>Ano</th>
-                                                <th>Qtd</th>
-                                                <th>Estado</th>
-                                                {/* <th>Salary</th> */}
+                                                <th>Cliente</th>
+                                                <th>Livro</th>
+                                                <th>Data do Emprestimo</th>
+                                                <th>Data de Devolucao</th>
+                                                {/* <th>Estado</th> */}
                                                 <th>Acao</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
+                                                <td>EJ-Developer</td>
+                                                <td>Sistema Online de Biblioteca</td>
+                                                <td>2025/04/25</td>
+                                                <td>2025/04/25</td>
                                                 {/* <td> <Button onClick={() => handleArmazemEdit(row)}><Edit /></Button>
                                                     <Button onClick={() => handleArmazemDelete(row)}><DeleteIcon /></Button></td> */}
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
+                                                <td> <Button>Editar</Button>
+                                                    <Button >Eliminar</Button></td>
                                             </tr>
                                         </tbody>
                                     </table>

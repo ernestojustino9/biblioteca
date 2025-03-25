@@ -20,7 +20,7 @@ const Home = () => {
                         <div className="col mr-2">
                           <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Utilizadores</div>
-                          <div className="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                          <div className="h5 mb-0 font-weight-bold text-gray-800">40</div>
                         </div>
                         <div className="col-auto">
                           <i className="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,7 +37,7 @@ const Home = () => {
                         <div className="col mr-2">
                           <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Livros</div>
-                          <div className="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                          <div className="h5 mb-0 font-weight-bold text-gray-800">15</div>
                         </div>
                         <div className="col-auto">
                           <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>

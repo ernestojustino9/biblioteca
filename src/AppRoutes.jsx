@@ -11,6 +11,9 @@ import Home from "./pages/Home";
 import Login from "./pages/admin/Login";
 import NotFound from "./components/error/NotFound";
 import Lirvos from "./pages/livros/Lirvos";
+import Reserva from "./pages/reserva/Reserva";
+import Emprestimo from "./pages/emprestimo/Emprestimo";
+import Multa from "./pages/multa/Multa";
 
 const AppRoutes = () => {
   // Pagina Privada
@@ -60,16 +63,33 @@ const AppRoutes = () => {
               </Private>
             }
           />
-          {/* Perfils */}
-          {/* <Route
+          <Route
             exact
-            path="/perfil/:email"
+            path="/reserva"
             element={
               <Private>
-                <Perfils />
+                <Reserva />
               </Private>
             }
-          /> */}
+          />
+          <Route
+            exact
+            path="/emprestimo"
+            element={
+              <Private>
+                <Emprestimo />
+              </Private>
+            }
+          />
+          <Route
+            exact
+            path="/multa"
+            element={
+              <Private>
+                <Multa />
+              </Private>
+            }
+          />
           {/* Login */}
           <Route exact path="/login" element={<Login />} />
           <Route exact path="*" element={<NotFound />} />

@@ -15,7 +15,8 @@ const Sidebar = () => {
           to="/"
         >
           <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-laugh-wink"></i>
+            {/* <i className="fas fa-laugh-wink"></i> */}
+            <i class="fa-solid fa-book-open"></i>
           </div>
           <div className="sidebar-brand-text mx-3">
             Biblioteca
@@ -50,7 +51,7 @@ const Sidebar = () => {
           // aria-expanded="true"
           // aria-controls="collapseTwo"
           >
-            {/* <i className="fas fa-fw fa-cog"></i> */}
+            <i class="fa-solid fa-book"></i>
             <span>Livros</span>
           </Link>
         </li>

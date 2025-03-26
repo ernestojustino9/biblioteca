@@ -60,34 +60,11 @@ const Multa = () => {
                                                 <td> <Button>Editar</Button>
                                                     <Button >Eliminar</Button></td>
                                             </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
-
-
-
-                        {/* </div> */}
                     </div>
                 </div>
                 <Footer />

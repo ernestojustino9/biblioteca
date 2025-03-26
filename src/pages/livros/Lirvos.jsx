@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
     Button,
-    TextField,
-} from '@mui/material';
+    TextField
+} from "@mui/material";
 // import Add from '@material-ui/icons/Add';
 // import Edit from '@material-ui/icons/Edit';
 // import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,8 +13,50 @@ import {
 import Sidebar from '../../components/layout/sliderbar/Sidebar'
 import HeaderMenu from '../../components/layout/header/HeaderMenu'
 import Footer from '../../components/layout/footer/Footer'
+import ModalCriarLivro from '../../components/modal/livro/ModalCriarLivro';
 
 const Lirvos = () => {
+    const [open, setOpen] = useState(false);
+    const [openEdit, setOpenEdit] = useState(false);
+    const [openVer, setOpenVer] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
+
+
+    const handleClickOpen = async () => {
+        setOpen(true);
+    };
+
+    const handleClose = async () => {
+        setOpen(false);
+    };
+
+    const handleClickEdit = async () => {
+        setOpenEdit(true);
+    };
+
+    const handleCloseEdit = async () => {
+        setOpenEdit(false);
+    };
+
+    const handleClickVer = async () => {
+        setOpenVer(true);
+    };
+
+    const handleCloseVer = async () => {
+        setOpenVer(false);
+    };
+
+
+    const handleClickDelete = async () => {
+        setOpenDelete(true);
+    };
+
+    const handleCloseDelete = async () => {
+        setOpenDelete(false);
+    };
+
+
+
     return (
         <div id="wrapper">
             <Sidebar />
@@ -33,8 +78,7 @@ const Lirvos = () => {
                                         className="pesquisarTesto"
                                     />
                                     <div className="todosBotoes">
-                                        {/* <Button onClick={() => handleClickOpen()} style={{ backgroundColor: "#008a00", color: "#fff" }} ><Add /></Button> */}
-                                        <Button  >+</Button>
+                                        <Button onClick={() => handleClickOpen()}><Add /></Button>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +115,86 @@ const Lirvos = () => {
 
 
 
+                        <div>
+                            {/* Criar */}
+                            <Dialog
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <DialogContent>
+                                    <ModalCriarLivro
+                                    // funcionarioListas={listarFuncionario}
+                                    // verFuncionarioID={verFuncionarioID._id}
+                                    // setOpenDelete={handleClosse}
+                                    />
+                                </DialogContent>
 
+                            </Dialog>
+                            {/*  Ver Detalhes*/}
+                            {/* <Dialog
+                                fullScreen
+                                open={openVer}
+                                onClose={handleCloseVer}
+                            >
+                                <AppBar sx={{ position: "relative" }}>
+                                    <Toolbar style={{ background: "#0060bf" }}>
+                                        <Typography
+                                            sx={{ ml: 2, flex: 1 }}
+                                            variant="h6"
+                                            component="div"
+                                        >
+                                            Horário do funcionário
+                                        </Typography>
+                                        <IconButton
+                                            edge="start"
+                                            color="inherit"
+                                            onClick={handleCloseVer}
+                                            aria-label="close"
+                                        >
+                                            <CloseIcon />
+                                        </IconButton>
+                                    </Toolbar>
+                                </AppBar>
+                                <ModalVerFuncionario verFuncionario={verFuncionario} />
+                            </Dialog> */}
+
+
+                            {/* Deletar */}
+                            {/* <Dialog
+                                open={openDelete}
+                                onClose={handleCloseDelete}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <DialogContent>
+                                    <ModalDeleteFuncionario
+                                        funcionarioListas={listarFuncionario}
+                                        verFuncionarioID={verFuncionarioID._id}
+                                        setOpenDelete={handleCloseDelete}
+                                    />
+                                </DialogContent>
+
+                            </Dialog> */}
+                            {/*  */}
+                            {/* <Dialog
+                                open={openEdit}
+                                onClose={handleEditClose}
+                                aria-labelledby="form-dialog-title"
+                                maxWidth="md" fullWidth
+                            >
+                                <DialogContent>
+                                    <ModalEditarFuncionario
+                                        verFuncionarioEDITAR={verFuncionarioEDITAR}
+                                        funcionarioListas={listarFuncionario}
+                                        setOpenEdit={handleEditClose}
+                                    />
+                                </DialogContent>
+
+                            </Dialog> */}
+                            {/*  */}
+                        </div>
                         {/* </div> */}
                     </div>
                 </div>

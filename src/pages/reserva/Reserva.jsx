@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
     Button,
-    TextField,
+    TextField
 } from '@mui/material';
 // import Add from '@material-ui/icons/Add';
 // import Edit from '@material-ui/icons/Edit';
@@ -12,6 +15,53 @@ import HeaderMenu from '../../components/layout/header/HeaderMenu'
 import Footer from '../../components/layout/footer/Footer'
 
 const Reserva = () => {
+    const [open, setOpen] = useState(false);
+    const [openEdit, setOpenEdit] = useState(false);
+    const [openPdf, setOpenPdf] = useState(false);
+    const [openVer, setOpenVer] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
+
+
+    const handleClickOpen = async () => {
+        setOpen(true);
+    };
+
+    const handleClose = async () => {
+        setOpen(false);
+    };
+
+    const handleClickEdit = async () => {
+        setOpenEdit(true);
+    };
+
+    const handleCloseEdit = async () => {
+        setOpenEdit(false);
+    };
+    const handleClickPdf = async () => {
+        setOpenPdf(true);
+    };
+
+    const handleClosePdf = async () => {
+        setOpenPdf(false);
+    };
+
+    const handleClickVer = async () => {
+        setOpenVer(true);
+    };
+
+    const handleCloseVer = async () => {
+        setOpenVer(false);
+    };
+
+
+    const handleClickDelete = async () => {
+        setOpenDelete(true);
+    };
+
+    const handleCloseDelete = async () => {
+        setOpenDelete(false);
+    };
+
     return (
         <div id="wrapper">
             <Sidebar />
@@ -46,39 +96,30 @@ const Reserva = () => {
                                                 <th>Cliente</th>
                                                 <th>Livro</th>
                                                 <th>Data</th>
-                                                <th>Estado</th>
+                                                {/* <th>Estado</th> */}
                                                 <th>Acao</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
+                                                <td>EJ-Developer</td>
+                                                <td>Sistema Online de Biblioteca</td>
                                                 <td>2011/04/25</td>
+                                                {/* <td>Edinburgh</td> */}
+
                                                 {/* <td> <Button onClick={() => handleArmazemEdit(row)}><Edit /></Button>
                                                     <Button onClick={() => handleArmazemDelete(row)}><DeleteIcon /></Button></td> */}
                                                 {/* <td> <Button><Edit /></Button>
                                                     <Button ><DeleteIcon /></Button></td> */}
+                                                <td>
+                                                    <Button onClick={() => handleClickEdit()}>Editar</Button>
+                                                    <Button onClick={() => handleClickPdf()}>pdf</Button>
+                                                    <Button onClick={() => handleClickVer()}>Ver</Button>
+                                                    <Button onClick={() => handleClickDelete()} >Eliminar</Button>
+
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                {/* <td> <Button><Edit /></Button>
-                                                    <Button ><DeleteIcon /></Button></td> */}
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>

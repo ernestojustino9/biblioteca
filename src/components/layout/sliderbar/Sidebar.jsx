@@ -76,7 +76,7 @@ const Sidebar = () => {
         <li className="nav-item">
           <Link
             className="nav-link collapsed"
-            href="emprestimo"
+            to="/emprestimo"
           // data-toggle="collapse"
           // data-target="#collapsePages"
           // aria-expanded="true"

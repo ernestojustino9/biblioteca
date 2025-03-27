@@ -14,16 +14,10 @@ import Sidebar from '../../components/layout/sliderbar/Sidebar'
 import HeaderMenu from '../../components/layout/header/HeaderMenu'
 import Footer from '../../components/layout/footer/Footer'
 import ModalCriarLivro from '../../components/modal/livro/ModalCriarLivro';
-import ModalEditarLivro from '../../components/modal/livro/ModalEditarLivro';
-import 'primeicons/primeicons.css';
-import ModalAddPdf from '../../components/modal/livro/ModalAddPdf';
-import ModalVerLivro from '../../components/modal/livro/ModalVerLivro';
-import ModalDeleteLivro from '../../components/modal/livro/ModalDeleteLivro';
 
 const Lirvos = () => {
     const [open, setOpen] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
-    const [openPdf, setOpenPdf] = useState(false);
     const [openVer, setOpenVer] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
 
@@ -42,13 +36,6 @@ const Lirvos = () => {
 
     const handleCloseEdit = async () => {
         setOpenEdit(false);
-    };
-    const handleClickPdf = async () => {
-        setOpenPdf(true);
-    };
-
-    const handleClosePdf = async () => {
-        setOpenPdf(false);
     };
 
     const handleClickVer = async () => {
@@ -91,8 +78,7 @@ const Lirvos = () => {
                                         className="pesquisarTesto"
                                     />
                                     <div className="todosBotoes">
-                                        {/* <Button onClick={() => handleClickOpen()}><Add /></Button> */}
-                                        <Button onClick={() => handleClickOpen()}><i className="pi-plus-circle"></i></Button>
+                                        <Button onClick={() => handleClickOpen()}><Add /></Button>
                                     </div>
                                 </div>
                             </div>
@@ -118,11 +104,8 @@ const Lirvos = () => {
                                                 <td>1</td>
                                                 {/* <td> <Button onClick={() => handleArmazemEdit(row)}><Edit /></Button>
                                                     <Button onClick={() => handleArmazemDelete(row)}><DeleteIcon /></Button></td> */}
-                                                <td>
-                                                    <Button onClick={() => handleClickEdit()}>Editar</Button>
-                                                    <Button onClick={() => handleClickPdf()}>pdf</Button>
-                                                    <Button onClick={() => handleClickVer()}>Ver</Button>
-                                                    <Button onClick={() => handleClickDelete()} >Eliminar</Button></td>
+                                                <td> <Button>Editar</Button>
+                                                    <Button >Eliminar</Button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -137,10 +120,10 @@ const Lirvos = () => {
                             <Dialog
                                 open={open}
                                 onClose={handleClose}
-                            // aria-labelledby="alert-dialog-title"
-                            // aria-describedby="alert-dialog-description"
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
                             >
-                                <DialogContent style={{ width: "600px" }}>
+                                <DialogContent>
                                     <ModalCriarLivro
                                     // funcionarioListas={listarFuncionario}
                                     // verFuncionarioID={verFuncionarioID._id}
@@ -149,84 +132,67 @@ const Lirvos = () => {
                                 </DialogContent>
 
                             </Dialog>
-
-                            <Dialog
-                                open={openEdit}
-                                onClose={handleCloseEdit}
-                            // aria-labelledby="form-dialog-title"
-                            // maxWidth="md" fullWidth
-                            >
-                                <DialogContent style={{ width: "600px" }}>
-                                    <ModalEditarLivro
-                                    // verFuncionarioEDITAR={verFuncionarioEDITAR}
-                                    // funcionarioListas={listarFuncionario}
-                                    // setOpenEdit={handleCloseEdit}
-                                    />
-                                </DialogContent>
-
-                            </Dialog>
-                            <Dialog
-                                open={openPdf}
-                                onClose={handleClosePdf}
-                            // aria-labelledby="form-dialog-title"
-                            // maxWidth="md" fullWidth
-                            >
-                                <DialogContent style={{ width: "600px" }}>
-                                    <ModalAddPdf
-                                    // verFuncionarioEDITAR={verFuncionarioEDITAR}
-                                    // funcionarioListas={listarFuncionario}
-                                    // setOpenEdit={handleCloseEdit}
-                                    />
-                                </DialogContent>
-
-                            </Dialog>
                             {/*  Ver Detalhes*/}
-                            <Dialog
-                                // fullScreen
+                            {/* <Dialog
+                                fullScreen
                                 open={openVer}
                                 onClose={handleCloseVer}
                             >
-                                {/* <AppBar sx={{ position: "relative" }}>
-                                    <Toolbar style={{ background: "#0060bf" }}> */}
-                                {/* <Typography
+                                <AppBar sx={{ position: "relative" }}>
+                                    <Toolbar style={{ background: "#0060bf" }}>
+                                        <Typography
                                             sx={{ ml: 2, flex: 1 }}
                                             variant="h6"
                                             component="div"
                                         >
-                                            Livro
-                                        </Typography> */}
-                                {/* <IconButton
+                                            Horário do funcionário
+                                        </Typography>
+                                        <IconButton
                                             edge="start"
                                             color="inherit"
                                             onClick={handleCloseVer}
                                             aria-label="close"
                                         >
                                             <CloseIcon />
-                                        </IconButton> */}
-                                {/* </Toolbar>
-                                </AppBar> */}
-                                <ModalVerLivro />
-                            </Dialog>
+                                        </IconButton>
+                                    </Toolbar>
+                                </AppBar>
+                                <ModalVerFuncionario verFuncionario={verFuncionario} />
+                            </Dialog> */}
 
 
                             {/* Deletar */}
-                            <Dialog
+                            {/* <Dialog
                                 open={openDelete}
                                 onClose={handleCloseDelete}
-                            // aria-labelledby="alert-dialog-title"
-                            // aria-describedby="alert-dialog-description"
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
                             >
                                 <DialogContent>
-                                    <ModalDeleteLivro
-                                    // funcionarioListas={listarFuncionario}
-                                    // verFuncionarioID={verFuncionarioID._id}
-                                    // setOpenDelete={handleCloseDelete}
+                                    <ModalDeleteFuncionario
+                                        funcionarioListas={listarFuncionario}
+                                        verFuncionarioID={verFuncionarioID._id}
+                                        setOpenDelete={handleCloseDelete}
                                     />
                                 </DialogContent>
 
-                            </Dialog>
+                            </Dialog> */}
+                            {/*  */}
+                            {/* <Dialog
+                                open={openEdit}
+                                onClose={handleEditClose}
+                                aria-labelledby="form-dialog-title"
+                                maxWidth="md" fullWidth
+                            >
+                                <DialogContent>
+                                    <ModalEditarFuncionario
+                                        verFuncionarioEDITAR={verFuncionarioEDITAR}
+                                        funcionarioListas={listarFuncionario}
+                                        setOpenEdit={handleEditClose}
+                                    />
+                                </DialogContent>
 
-
+                            </Dialog> */}
                             {/*  */}
                         </div>
                         {/* </div> */}

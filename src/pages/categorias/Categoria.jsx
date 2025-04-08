@@ -16,19 +16,19 @@ import Footer from '../../components/layout/footer/Footer'
 import { Link, useParams } from 'react-router-dom';
 import * as messages from "../../components/message/toastr";
 import ModalCriarCategoria from '../../components/modal/categoria/ModalCriarCategoria';
-import { getCategorias, removeCategoria } from '../../service/CategoriaService';
+import ModalEditarCategoria from '../../components/modal/categoria/ModalEditarCategoria';
+import { getCategorias, removeCategoria, getCategoriaid } from '../../service/CategoriaService';
 import Skeleton from "@mui/material/Skeleton";
 import Swal from 'sweetalert2';
+import api from '../../service/api';
 
 const Categoria = () => {
     const { id } = useParams();
     const [categorias, setCategorias] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const [loading, setLoading] = useState(true);
-    const [loaderTabela, setLoaderTabela] = useState(false);
     const [open, setOpen] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
-    const [openDelete, setOpenDelete] = useState(false);
-    const [erro, setErro] = useState(null);
 
     const handleClickOpen = async () => {
         setOpen(true);
@@ -46,29 +46,30 @@ const Categoria = () => {
         setOpenEdit(false);
     };
 
-    const handleClickDelete = async () => {
-        setOpenDelete(true);
-    };
-
-    const handleCloseDelete = async () => {
-        setOpenDelete(false);
-    };
-
     useEffect(() => {
         getAllCategoria();
     }, []);
+
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const filteredCategorias = categorias.filter(
+        (row) =>
+            row.titulo.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            row.descricao.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     //LISTAR
     const getAllCategoria = async () => {
         await getCategorias()
             .then((response) => {
-                setCategorias(response.data);
-                setErro(response.data.message);
+                setCategorias(response.data.serializes);
                 setLoading(false);
             })
             .catch((error) => {
+                const errorMessage = error.response?.data?.message || error.message;
                 // messages.mensagemErro(error.message);
-                // setErro(error.message);
             });
     };
     const deleteCategoria = (id) => {
@@ -91,6 +92,7 @@ const Categoria = () => {
         });
     };
 
+
     return (
         <div id="wrapper">
             <Sidebar />
@@ -105,10 +107,10 @@ const Categoria = () => {
                                 <div class="search-container">
                                     <TextField
                                         // id="standard-basic"
-                                        label="Pesquisar por Nome / Email "
+                                        label="Pesquisar por Título / Descrição "
                                         variant="standard"
-                                        //   value={searchQuery}
-                                        //   onChange={handleSearchChange}
+                                        value={searchQuery}
+                                        onChange={handleSearchChange}
                                         className="pesquisarTesto"
                                     />
                                     <div className="todosBotoes">
@@ -119,10 +121,8 @@ const Categoria = () => {
                             <div className="card-body">
                                 <div className="table-responsive">
                                     {
-                                        loaderTabela ?
+                                        loading ?
                                             <Box sx={{ width: "100%" }}>
-                                                <Skeleton sx={{ height: "70px" }} />
-                                                <Skeleton sx={{ height: "70px" }} />
                                                 <Skeleton sx={{ height: "70px" }} />
                                                 <Skeleton sx={{ height: "70px" }} />
                                                 <Skeleton sx={{ height: "70px" }} />
@@ -130,23 +130,23 @@ const Categoria = () => {
                                             <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Cliente</th>
-                                                        <th>Emprestimo</th>
-                                                        <th>Valor</th>
-                                                        {/* <th>Estado</th> */}
-                                                        <th>Acao</th>
+                                                        <th>Título</th>
+                                                        <th>Descrição</th>
+                                                        <th>Ação</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>EJ-Developer</td>
-                                                        <td>Vagne Zau Lelo</td>
-                                                        <td>100kz</td>
-                                                        <td>
-                                                            <Button onClick={() => handleClickEdit()}><EditIcon /></Button>
-                                                            <Button onClick={() => handleClickDelete()}><DeleteIcon /></Button>
-                                                        </td>
-                                                    </tr>
+                                                    {filteredCategorias.map((cat) => (
+                                                        <tr>
+                                                            <td>{cat.titulo}</td>
+                                                            <td>{cat.descricao}</td>
+                                                            <td>
+                                                                <Button onClick={() => handleClickEdit(cat._id)}><EditIcon /></Button>
+                                                                <Button onClick={() => deleteCategoria(cat._id)}><DeleteIcon /></Button>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+
                                                 </tbody>
                                             </table>
                                     }
@@ -159,56 +159,28 @@ const Categoria = () => {
                             <Dialog
                                 open={open}
                                 onClose={handleClose}
-                            // aria-labelledby="alert-dialog-title"
-                            // aria-describedby="alert-dialog-description"
                             >
                                 <DialogContent style={{ width: "600px" }}>
                                     <ModalCriarCategoria
-                                    // funcionarioListas={listarFuncionario}
-                                    // verFuncionarioID={verFuncionarioID._id}
-                                    // setOpenDelete={handleClosse}
+                                        listasCategorias={getAllCategoria}
+                                        setOpen={handleClose}
                                     />
                                 </DialogContent>
 
                             </Dialog>
 
-                            {/* <Dialog
+                            <Dialog
                                 open={openEdit}
                                 onClose={handleCloseEdit}
-                            // aria-labelledby="form-dialog-title"
-                            // maxWidth="md" fullWidth
                             >
                                 <DialogContent style={{ width: "600px" }}>
-                                    <ModalEditarLivro
-                                    // verFuncionarioEDITAR={verFuncionarioEDITAR}
-                                    // funcionarioListas={listarFuncionario}
-                                    // setOpenEdit={handleCloseEdit}
+                                    <ModalEditarCategoria
+                                        listasCategorias={getAllCategoria}
+                                        setOpenEdit={handleCloseEdit}
                                     />
                                 </DialogContent>
 
-                            </Dialog> */}
-
-                            {/*  Ver Detalhes*/}
-
-
-
-                            {/* Deletar */}
-                            {/* <Dialog
-                                open={openDelete}
-                                onClose={handleCloseDelete}
-                            // aria-labelledby="alert-dialog-title"
-                            // aria-describedby="alert-dialog-description"
-                            >
-                                <DialogContent>
-                                    <ModalDeleteLivro
-                                    // funcionarioListas={listarFuncionario}
-                                    // verFuncionarioID={verFuncionarioID._id}
-                                    // setOpenDelete={handleCloseDelete}
-                                    />
-                                </DialogContent>
-
-                            </Dialog> */}
-
+                            </Dialog>
 
                             {/*  */}
                         </div>

@@ -1,22 +1,26 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-// import logo from "../../assets/img/logo/logo.jpg";
-import { AuthContext } from "../../contexts/Auth";
-// import { MdEmail, MdLock } from "react-icons/md";
+import React, { useState, useContext } from 'react'
+import * as messages from "../../components/message/toastr";
+import { AuthContext } from '../../contexts/auth';
 
 const Login = () => {
   //
-  const { authenticated, login } = useContext(AuthContext);
-  //
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const { signIn } = useContext(AuthContext);
+  const [values, setValues] = useState({
+    email: "",
+    senha: "",
+  });
 
-  // Botao de entrar
-  const handleSumite = (e) => {
+  const handleChange = ({ currentTarget: input }) => {
+    const { name, value } = input;
+    setValues({ ...values, [name]: value });
+  };
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("submit", { email, senha });
-
-    login(email, senha); // integracao com o meu contexto / API
+    try {
+      signIn(values);
+    } catch (error) {
+      messages.mensagemErro(error, "Ocorreu um erro. Tente novamente!")
+    }
   };
   //
   return (
@@ -35,7 +39,7 @@ const Login = () => {
                       <div className="text-center">
                         <h1 className="h4 text-gray-900 mb-4">Biblioteca!</h1>
                       </div>
-                      <form className="user" onSubmit={handleSumite}>
+                      <form className="user" onSubmit={handleLogin}>
                         <div className="form-group">
                           <input
                             type="email"
@@ -43,8 +47,9 @@ const Login = () => {
                             id="exampleInputEmail"
                             aria-describedby="emailHelp"
                             placeholder="Digite seu email..."
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            // value={email}
+                            name='email'
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="form-group">
@@ -53,8 +58,9 @@ const Login = () => {
                             className="form-control form-control-user"
                             id="exampleInputPassword"
                             placeholder="Digite a sua senha..."
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
+                            // value={senha}
+                            name='senha'
+                            onChange={handleChange}
                           />
                         </div>
                         <button

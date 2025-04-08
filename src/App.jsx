@@ -1,14 +1,13 @@
-import { useState } from "react";
 import "./App.css";
-import AppRoutes from "./AppRoutes";
+import "toastr/build/toastr.min.js";
+import "toastr/build/toastr.css";
+import Routas from "./routes/Routes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div> 
-        <AppRoutes />
+        <Routas />
       </div>
     </>
   );

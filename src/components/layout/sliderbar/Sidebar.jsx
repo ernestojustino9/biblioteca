@@ -1,4 +1,7 @@
 import React from "react";
+import HomeIcon from '@mui/icons-material/Home';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import PersonIcon from '@mui/icons-material/Person';
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -15,8 +18,7 @@ const Sidebar = () => {
           to="/"
         >
           <div className="sidebar-brand-icon rotate-n-15">
-            {/* <i className="fas fa-laugh-wink"></i> */}
-            <i class="fa-solid fa-book-open"></i>
+            {/* <i class="fa-solid fa-book-open"></i> */}
           </div>
           <div className="sidebar-brand-text mx-3">
             Biblioteca
@@ -29,13 +31,12 @@ const Sidebar = () => {
 
         {/* <!-- Nav Item - Dashboard --> */}
         <li className="nav-item active">
-          <a
+          <Link
             className="nav-link"
-          // href="index.html"
+            to="/"
           >
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
+            <span> <HomeIcon /> Dashboard</span>
+          </Link>
         </li>
 
         {/* <!-- Divider --> */}
@@ -45,14 +46,10 @@ const Sidebar = () => {
         <li className="nav-item">
           <Link
             className="nav-link collapsed"
-            to="/livros"
-          // data-toggle="collapse"
-          // data-target="#collapseTwo"
-          // aria-expanded="true"
-          // aria-controls="collapseTwo"
+            to="/categorias"
           >
-            <i class="fa-solid fa-book"></i>
-            <span>Livros</span>
+            {/* <i class="fa-solid fa-book"></i> */}
+            <span><LibraryBooksIcon />Categorias</span>
           </Link>
         </li>
 
@@ -94,10 +91,10 @@ const Sidebar = () => {
           <Link
             className="nav-link collapsed"
             to="/multa"
-            // data-toggle="collapse"
-            // data-target="#collapsePages"
-            // aria-expanded="true"
-            // aria-controls="collapsePages"
+          // data-toggle="collapse"
+          // data-target="#collapsePages"
+          // aria-expanded="true"
+          // aria-controls="collapsePages"
           >
             {/* <i className="fas fa-fw fa-folder"></i> */}
             <span>Multa</span>

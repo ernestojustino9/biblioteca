@@ -11,7 +11,7 @@ import Sidebar from '../../components/layout/sliderbar/Sidebar'
 import HeaderMenu from '../../components/layout/header/HeaderMenu'
 import Footer from '../../components/layout/footer/Footer'
 
-const Multa = () => {
+const Categoria = () => {
     return (
         <div id="wrapper">
             <Sidebar />
@@ -22,7 +22,7 @@ const Multa = () => {
                         {/* <div className="row"> */}
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Multa</h6>
+                                <h6 className="m-0 font-weight-bold text-primary">Categoria</h6>
                                 <div class="search-container">
                                     <TextField
                                         // id="standard-basic"
@@ -73,4 +73,4 @@ const Multa = () => {
     )
 }
 
-export default Multa
+export default Categoria

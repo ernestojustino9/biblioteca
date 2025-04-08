@@ -8,6 +8,8 @@ import {
 import { AuthContext, AuthProvider } from "../contexts/Auth";
 import Home from "../pages/Home";
 import Login from "../pages/admin/Login";
+import Categoria from "../pages/categorias/Categoria";
+import Lirvos from "../pages/livros/Lirvos";
 import Roles from "../components/roles/Roles";
 
 
@@ -50,7 +52,7 @@ const Routas = () => {
                     {/* Home Pege */}
                     <Route exact path="/" element={<Private requiredRoles={[Roles.ADMIN, Roles.AUTOR]}><Home /></Private>} />
                     <Route exact path="/categorias" element={<Private requiredRoles={[Roles.ADMIN]}><Categoria /></Private>} />
-                    <Route exact path="/livros" element={<Private requiredRoles={[Roles.ADMIN]}><Livro /></Private>} />
+                    <Route exact path="/livros" element={<Private requiredRoles={[Roles.ADMIN]}><Lirvos /></Private>} />
                     {/*   <Route exact path="/editBanner/:id" element={<Private requiredRoles={[Roles.ADMIN]}><EditBanner /></Private>} />
           <Route exact path="/sobre" element={<Private requiredRoles={[Roles.ADMIN]}><Sobre /></Private>} />
           <Route exact path="/editSobre/:id" element={<Private requiredRoles={[Roles.ADMIN]}><EditSobre /></Private>} />

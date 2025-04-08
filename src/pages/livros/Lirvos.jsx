@@ -6,9 +6,10 @@ import {
     Button,
     TextField
 } from "@mui/material";
-// import Add from '@material-ui/icons/Add';
-// import Edit from '@material-ui/icons/Edit';
-// import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 // import CloseIcon from '@mui/icons-material/Close';
 import Sidebar from '../../components/layout/sliderbar/Sidebar'
 import HeaderMenu from '../../components/layout/header/HeaderMenu'

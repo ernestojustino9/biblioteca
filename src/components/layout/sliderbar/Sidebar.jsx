@@ -1,7 +1,9 @@
 import React from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import PersonIcon from '@mui/icons-material/Person';
+import CategoryIcon from '@mui/icons-material/Category';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
+import PeopleIcon from '@mui/icons-material/People';
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -43,15 +45,28 @@ const Sidebar = () => {
         <hr className="sidebar-divider" />
 
         {/* <!-- Heading --> */}
+
         <li className="nav-item">
           <Link
             className="nav-link collapsed"
             to="/categorias"
           >
             {/* <i class="fa-solid fa-book"></i> */}
-            <span><LibraryBooksIcon />Categorias</span>
+            <span><CategoryIcon />Categorias</span>
           </Link>
         </li>
+
+        <li className="nav-item">
+          <Link
+            className="nav-link collapsed"
+            to="/livros"
+          >
+            {/* <i class="fa-solid fa-book"></i> */}
+            <span><LibraryBooksIcon />Livros</span>
+          </Link>
+        </li>
+
+
 
         {/* <!-- Nav Item - Utilities Collapse Menu --> */}
         <li className="nav-item">
@@ -64,7 +79,7 @@ const Sidebar = () => {
           // aria-controls="collapseUtilities"
           >
             {/* <i className="fas fa-fw fa-wrench"></i> */}
-            <span>Reserva</span>
+            <span> <BookOnlineIcon />Reserva</span>
           </Link>
         </li>
         {/* <!-- Divider --> */}
@@ -80,43 +95,11 @@ const Sidebar = () => {
           // aria-controls="collapsePages"
           >
             {/* <i className="fas fa-fw fa-folder"></i> */}
-            <span>Emprestimo</span>
+            <span><PeopleIcon />Empréstimo</span>
           </Link>
         </li>
-
         {/* <!-- Divider --> */}
-        <hr className="sidebar-divider" />
-        {/* <!-- Nav Item - Pages Collapse Menu --> */}
-        <li className="nav-item">
-          <Link
-            className="nav-link collapsed"
-            to="/multa"
-          // data-toggle="collapse"
-          // data-target="#collapsePages"
-          // aria-expanded="true"
-          // aria-controls="collapsePages"
-          >
-            {/* <i className="fas fa-fw fa-folder"></i> */}
-            <span>Multa</span>
-          </Link>
-        </li>
-
-        {/* <!-- Nav Item - Charts --> */}
-        {/* <li className="nav-item">
-          <a className="nav-link" href="charts.html">
-            <i className="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span>
-          </a>
-        </li> */}
-
-        {/* <!-- Nav Item - Tables --> */}
-        {/* <li className="nav-item">
-          <a className="nav-link" href="tables.html">
-            <i className="fas fa-fw fa-table"></i>
-            <span>Tables</span>
-          </a>
-        </li> */}
-        {/* <!-- Divider --> */}
+        {/* <hr className="sidebar-divider" /> */}
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>
     </div>
